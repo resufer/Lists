@@ -8,3 +8,12 @@ export function timeWork() {
     localStorage.setItem('dataList', JSON.stringify(data));
   }]
 }
+
+function timeComparison(prevDate) {
+  let [prevDay, prevMonth, prevYear] = prevDate.split('.');
+
+  let currentDate = new Date();
+  let [currentDay, currentMonth, currentYear] = [currentDate.getDate(), currentDate.getMonth() + 1, currentDate.getFullYear()];
+
+  return (+prevDay === currentDay) && (+prevMonth === currentMonth) && (+prevYear === currentYear)
+}
