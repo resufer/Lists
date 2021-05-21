@@ -17,3 +17,20 @@ body {
   flex-flow: row wrap;
   justify-content: center;
 }
+
+.title {
+  width: 100%;
+  background-color: goldenrod;
+  color: aliceblue;
+  font-size: calc(1.5vw + 15px);
+  text-align: center;
+}
+
+.leftSide {
+  width: 60%;
+}
+
+.rightSide {
+  width: 10%;
+  text-align: center;
+}
