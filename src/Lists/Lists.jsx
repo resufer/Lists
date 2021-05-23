@@ -1,6 +1,6 @@
 import React from 'react';
 import List from './List/List';
-import { timeWork } from './timeWork';
+import { initialize, timeWork } from './timeWork';
 
 class Lists extends React.Component {
   state = {
@@ -9,6 +9,7 @@ class Lists extends React.Component {
   }
 
   componentDidMount() {
+    initialize();
     let [data, form, saveNewData] = timeWork();
     this.setState({ data, form });
   }
