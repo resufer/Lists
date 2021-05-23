@@ -35,8 +35,8 @@ function saveNewData(data, data1, data2, data3) {
   let newData = {};
   newData[currentDate] = [
     { 'Common': data1 },
-    { 'JS Theory': data2 },
-    { 'Front Practice': data3 }
+    { 'Theory': data2 },
+    { 'Practice': data3 }
   ];
 
   data.push(newData);
