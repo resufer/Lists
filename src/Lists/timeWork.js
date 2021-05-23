@@ -17,3 +17,15 @@ function timeComparison(prevDate) {
 
   return (+prevDay === currentDay) && (+prevMonth === currentMonth) && (+prevYear === currentYear)
 }
+
+export function initialize() {
+  let data = localStorage.getItem('dataList');
+  if (!data) {
+    data = [{'The requirements': [
+      { 'Common': "0:30" },
+      { 'Theory': "0:30" },
+      { 'Practice': "3:00" }
+    ]}]
+    localStorage.setItem('dataList', JSON.stringify(data));
+  }
+}
