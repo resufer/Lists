@@ -1,12 +1,10 @@
 export function timeWork() {
   let data = JSON.parse(localStorage.getItem('dataList'));
+  let prevDate = Object.keys(data[data.length - 1])[0];
 
-  let formState = !timeComparison(Object.keys(data[data.length - 1])[0])
+  let formState = !timeComparison(prevDate);
 
-  return [data, formState, (newData) => {
-    data.push(newData);
-    localStorage.setItem('dataList', JSON.stringify(data));
-  }]
+  return [data, formState, saveNewData];
 }
 
 function timeComparison(prevDate) {
@@ -28,4 +26,19 @@ export function initialize() {
     ]}]
     localStorage.setItem('dataList', JSON.stringify(data));
   }
+}
+
+function saveNewData(data, data1, data2, data3) {
+  let currentDate = new Date();
+  currentDate = currentDate.getDate() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getFullYear();
+
+  let newData = {};
+  newData[currentDate] = [
+    { 'Common': data1 },
+    { 'JS Theory': data2 },
+    { 'Front Practice': data3 }
+  ];
+
+  data.push(newData);
+  localStorage.setItem('dataList', JSON.stringify(data));
 }
